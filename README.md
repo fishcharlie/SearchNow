@@ -1,3 +1,3 @@
-# SearchNow
+# Sticky
 
-[Trello](https://trello.com/b/3QhSw1PE/searchnow-project-2)
+[Trello](https://trello.com/b/3QhSw1PE/sticky-project-2)
