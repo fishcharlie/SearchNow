@@ -4,7 +4,7 @@ class Sticky < Sinatra::Base
 
   # index
   get '/' do
-    @notes = Notes.all
+    @notes = Note.all
     erb(:"home")
   end
 
