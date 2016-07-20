@@ -4,3 +4,7 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem "sinatra"
+gem "sinatra-activerecord"
+gem "rake"
+gem "activerecord"
+gem "pg"
