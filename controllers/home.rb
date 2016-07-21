@@ -18,7 +18,7 @@ class Sticky < Sinatra::Base
     end
   end
 
-  get '/new/stickies' do
+  get '/stickies/new' do
     erb(:"new")
   end
 
