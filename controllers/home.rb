@@ -8,5 +8,20 @@ class Sticky < Sinatra::Base
     erb(:"home")
   end
 
+  # create
+  post '/stickies' do
+    @note = Note.new(params[:note])
+    if @note.save
+      redirect("/")
+    else
+      erb(:"/stickies/new")
+    end
+  end
+
+  get '/new/stickies' do
+    erb(:"new")
+  end
+
+
 
 end
