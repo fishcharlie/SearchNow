@@ -49,6 +49,12 @@ class Sticky < Sinatra::Base
   end
 
 
+  # show one
+  get '/stickies/:id' do
+    @note = Note.find(params[:id])
+    erb(:"show")
+  end
+
 
 
 
