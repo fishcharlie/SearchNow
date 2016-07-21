@@ -1,0 +1,7 @@
+<form action='/stickies/<%= "#{@note.id}" %>' method="post">
+  <input name="_method" type="hidden" value="PUT" />
+  <label for="note[content]">Note:</label>
+  <input name="note[content]" value='<%= "#{@note.content}" %>'>
+
+  <input type="submit" value="Create">
+</form>
