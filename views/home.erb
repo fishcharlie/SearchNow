@@ -6,6 +6,13 @@
 	<li>
 		<%= note.id %>
 		<%= note.content %>
+		<form action='/stickies/<%= "#{note.id}" %>/delete' method="post">
+  			<input name="_method" type="hidden" value="DELETE" />
+			<button>Delete</button>
+		</form>
+		<form action='/stickies/<%= "#{note.id}" %>/edit' method="get">
+			<button>Edit</button>
+		</form>
 	</li>
 </ul>
 <% end %>
