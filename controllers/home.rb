@@ -22,6 +22,17 @@ class Sticky < Sinatra::Base
     erb(:"new")
   end
 
+  # delete
+  delete '/stickies/:id/delete' do
+    @note = Note.find(params[:id])
+    if @note.destroy
+      redirect('/')
+    else
+      redirect("/")
+    end
+  end
+
+
 
 
 end
