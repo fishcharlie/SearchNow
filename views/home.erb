@@ -1,14 +1,14 @@
-<h1>Stickies</h1>
-<form action='/stickies/new' method="get">
-	<button>New</button>
-</form>
+<link rel="stylesheet" type="text/css" href="/css/index.css">
 
+<div class="title">
+	<h1>Stickies</h1>
+	<a href="/stickies/new"><span class="glyphicon glyphicon-plus"></span></a>
+</div>
 
 <% @notes.each do |note| %>
-<ul>
-	<li>
-		<%= note.id %>
+	<div class="note">
 		<%= note.content %>
+		<br><br><br>
 		<form action='/stickies/<%= "#{note.id}" %>/delete' method="post">
   			<input name="_method" type="hidden" value="DELETE" />
 			<button>Delete</button>
@@ -16,6 +16,5 @@
 		<form action='/stickies/<%= "#{note.id}" %>/edit' method="get">
 			<button>Edit</button>
 		</form>
-	</li>
-</ul>
+	</div>
 <% end %>
