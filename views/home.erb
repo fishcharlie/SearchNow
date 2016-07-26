@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 
+
+
 <div class="title">
 	<h1>Stickies</h1>
 	<a href="/stickies/new"><span class="glyphicon glyphicon-plus"></span></a>
@@ -7,7 +9,7 @@
 
 <% @notes.each do |note| %>
 	<div class="note">
-		<%= note.content %>
+		<a href="#" class="content" data-type="text" data-pk="1" data-url="/stickies/<%= note.id %>" data-title="<%= note.content %>" style="color: black;"><%= note.content %></a>
 		<br><br><br>
 		<form action='/stickies/<%= "#{note.id}" %>/delete' method="post">
   			<input name="_method" type="hidden" value="DELETE" />
@@ -18,3 +20,24 @@
 		</form>
 	</div>
 <% end %>
+
+<script>
+$(document).ready(function() {
+	$.fn.editable.defaults.ajaxOptions = {type: "PUT"};
+	// $.fn.editable.defaults.mode = 'inline';
+    $('.content').editable({
+	    success: function(response, newValue) {
+	        // if(response.status == 'error') console.log(response.msg); //msg will be shown in editable form
+			console.log(response);
+	    },
+		error: function(response, newValue) {
+		    if(response.status === 500) {
+		        return 'Service unavailable. Please try later.';
+		    } else {
+		        return response.responseText;
+		    }
+		}
+
+	});
+});
+</script>

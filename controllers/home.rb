@@ -36,7 +36,7 @@ class Sticky < Sinatra::Base
   # edit
   put '/stickies/:id' do
     @note = Note.find(params[:id])
-    if @note.update_attributes(params[:note])
+    if @note.update_attributes({content: params[:value]})
       redirect("/")
     else
       redirect("/")
@@ -50,10 +50,10 @@ class Sticky < Sinatra::Base
 
 
   # show one
-  get '/stickies/:id' do
-    @note = Note.find(params[:id])
-    erb(:"show")
-  end
+  # get '/stickies/:id' do
+  #   @note = Note.find(params[:id])
+  #   erb(:"show")
+  # end
 
 
 
